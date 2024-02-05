@@ -1,0 +1,2 @@
+# HHO_api_server
+基于node.js的express模块搭建的掌上点餐系统的后端服务器与接口，使用mysql数据库
