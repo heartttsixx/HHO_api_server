@@ -1,0 +1,26 @@
+base64 图片格式:  data:image/png;base64,VE9PTUFOWVNFQ1JFVFM=
+
+微信开发者程序生成二维码 扫码跳转界面后调用接口 定义三个店铺接口 1.奶茶店 2.甜品店 3.中餐店
+
+record：
+    1.mysql图片存储
+    2.分类表 用于搜索
+    下单表 用于店铺选餐的项目（餐品id 餐品名称 数量 单价 总价）
+    订单表 用于付费后生成 与客户订单记录（订单id  时间（时间戳） 菜品相关（可能包含一行多值存储））（*）
+
+    (接口带/api 的接口不需要用户认证的token字段)
+API:
+    获取服务器时间接口 http://127.0.0.1/api/time get
+    注册用户接口 http://127.0.0.1/api/register post
+    登录接口 http://127.0.0.1/api/login post
+    获取用户信息接口 http://127.0.0.1/my/userinfo get
+    更新用户信息接口 http://127.0.0.1/my//userinfo post
+    获取用户所有订单接口 http://127.0.0.1/my/getorderinfo get
+    获取用户订单详情接口 http://127.0.0.1/my/getorderlistinfo get
+    更新用户头像接口 http://127.0.0.1/my/update/avatar post
+    获取食品分类接口  http://127.0.0.1/my/food/category get
+    搜索接口 http://127.0.0.1/index/search get
+    添加订单接口 http://127.0.0.1/pay/addorder post
+    
+    店铺接口 
+    获取中餐店信息接口http://127.0.0.1/restaurant/zcd01 get
