@@ -1,20 +1,12 @@
-base64 图片格式:  data:image/png;base64,VE9PTUFOWVNFQ1JFVFM=
-
-微信开发者程序生成二维码 扫码跳转界面后调用接口 定义三个店铺接口 1.奶茶店 2.甜品店 3.中餐店
-
-record：
-    1.mysql图片存储
-    2.分类表 用于搜索
-    下单表 用于店铺选餐的项目（餐品id 餐品名称 数量 单价 总价）
-    订单表 用于付费后生成 与客户订单记录（订单id  时间（时间戳） 菜品相关（可能包含一行多值存储））（*）
 
     (接口带/api 的接口不需要用户认证的token字段)
 API:
-    获取服务器时间接口 http://127.0.0.1/api/time get
+    获取服务器时间戳接口 http://127.0.0.1/api/timestamp get
+	获取服务器时间字符串接口 http://127.0.0.1/api/time get
     注册用户接口 http://127.0.0.1/api/register post
     登录接口 http://127.0.0.1/api/login post
     获取用户信息接口 http://127.0.0.1/my/userinfo get
-    更新用户信息接口 http://127.0.0.1/my//userinfo post
+    更新用户信息接口 http://127.0.0.1/my/userinfo post
     获取用户所有订单接口 http://127.0.0.1/my/getorderinfo get
     获取用户订单详情接口 http://127.0.0.1/my/getorderlistinfo get
     更新用户头像接口 http://127.0.0.1/my/update/avatar post
@@ -24,3 +16,36 @@ API:
     
     店铺接口 
     获取中餐店信息接口http://127.0.0.1/restaurant/zcd01 get
+    获取奶茶店信息接口http://127.0.0.1/restaurant/ncd01 get
+    获取甜品店信息接口http://127.0.0.1/restaurant/tpd01 get
+
+base64 图片格式:方法见uploadpic
+
+微信开发者程序生成二维码 扫码跳转界面后调用接口 定义三个店铺接口 1.奶茶店 2.甜品店 3.中餐店
+
+record：
+    1.mysql图片存储
+    2.表
+        用户信息表
+        分类表 用于搜索
+        下单表 用于店铺选餐的项目（餐品id 餐品名称 数量 单价 总价）
+        订单表 用于付费后生成 与客户订单记录（订单id  时间（时间戳） 菜品相关（可能包含一行多值存储））（*）
+        店铺表
+    3.更新店铺库存（not important）
+
+    店铺
+    id  名称
+    1   中餐店 zcd
+    2   奶茶店 ncd
+    3   甜品店 tpd
+    食品类别id 面食/粉10   饮品20  炒菜30  甜品40
+    当前测试（中餐店）
+    测试账户 username：admin1   password：12345
+    
+    全局菜谱
+    id      分类    名称        别称
+    101     面食    牛肉面      nrm
+    102     面食    肥肠面      fcm
+    103     面食    番茄鸡蛋面  fcjdm
+    104     面食    鸡杂面      jzm
+    

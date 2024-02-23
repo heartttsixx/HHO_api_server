@@ -9,7 +9,7 @@ const order=require('../router_handler/order')
 const expressjoi=require('@escook/express-joi')
 //导入验证处理
 const{schema_addorder}=require('../schema/pay&order')
-//添加订单到数据库//添加订单详情列表
+//添加订单到数据库//添加订单详情列表      PS只有支付成功之后该订单才会添加到用户账户
 router.post('/addorder',expressjoi(schema_addorder),order.addOrder)
 //获取订单
 //在userinfo接口中

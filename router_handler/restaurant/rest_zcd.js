@@ -1,22 +1,22 @@
 //导入数据库
-const db=require('../db/index')
-
-exports.getFoodCategory=(req,res)=>{
-
-    const sqlStr='select * from category order by id asc'
+const db=require('../../db/index')
+//获取中餐店数据
+exports.zcdData=(req,res)=>{
+    const sqlStr='SELECT * FROM rest_zcd '
     db.query(sqlStr,(err,results)=>{
         if(err){
             return res.cc(err)
         }
-        res.send({
-            status:0,
-            message:'获取所有食物分类列表成功',
-            data:results,
-        })
+        if(results.length>0){
+            return res.send({
+                results
+            })
+        }
+        res.send('无结果')
     })
 }
-exports.getFoodCategory1=(req,res)=>{
-    const sqlStr='select * from category where id>100&&id<200'//获取面食
+exports.getZcdCategory1=(req,res)=>{
+    const sqlStr='select * from rest_zcd where id>100&&id<200'//获取面食
     db.query(sqlStr,(err,results)=>{
         if(err){
             return res.cc(err)
@@ -28,8 +28,8 @@ exports.getFoodCategory1=(req,res)=>{
         })
     })
 }
-exports.getFoodCategory2=(req,res)=>{
-    const sqlStr='select * from category where id>200&&id<300'//获取饮品
+exports.getZcdCategory2=(req,res)=>{
+    const sqlStr='select * from rest_zcd where id>200&&id<300'//获取饮品
     db.query(sqlStr,(err,results)=>{
         if(err){
             return res.cc(err)
@@ -41,8 +41,8 @@ exports.getFoodCategory2=(req,res)=>{
         })
     })
 }
-exports.getFoodCategory3=(req,res)=>{
-    const sqlStr='select * from category where id>300&&id<400'//获取中餐
+exports.getZcdCategory3=(req,res)=>{
+    const sqlStr='select * from rest_zcd where id>300&&id<400'//获取中餐
     db.query(sqlStr,(err,results)=>{
         if(err){
             return res.cc(err)
@@ -54,8 +54,8 @@ exports.getFoodCategory3=(req,res)=>{
         })
     })
 }
-exports.getFoodCategory4=(req,res)=>{
-    const sqlStr='select * from category where id>400&&id<500'//获取甜品
+exports.getZcdCategory4=(req,res)=>{
+    const sqlStr='select * from rest_zcd where id>400&&id<500'//获取甜品
     db.query(sqlStr,(err,results)=>{
         if(err){
             return res.cc(err)
